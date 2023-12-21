@@ -1,6 +1,6 @@
 include_directories(.)
 
-add_library(qt_composition STATIC
+add_library(qt_composition SHARED
         metaobjectbuilder.cpp
         qcomponentcontainer.cpp
         qcomponentfactoryinterface.cpp
@@ -10,7 +10,6 @@ add_library(qt_composition STATIC
         qlazy.cpp
         qpart.cpp
         qpartmetaobject.cpp
-        qtestcomposition.cpp
         QtComposition_global.h
         metaobjectbuilder.h
         qcomponentcontainer.h
@@ -22,7 +21,9 @@ add_library(qt_composition STATIC
         qlazy.hpp
         qpart.h
         qpartmetaobject.h
-        qtestcomposition.h
+#        qtestcomposition.h
+#        qtestcomposition.cpp
+        qcomponentregistry.hpp
 )
 
 target_link_libraries(qt_composition  PUBLIC ${QT_LIBS_WITH_PREFIX})

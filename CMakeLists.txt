@@ -2,7 +2,15 @@ cmake_minimum_required(VERSION 3.8)
 
 include(FetchContent)
 
+if(DEFINED PROJECT_NAME)
+    set(SUBPROJECT ON)
+endif()
+
 project(qt-composition)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
 
 set(CMAKE_CXX_STANDARD 14)
@@ -25,5 +33,8 @@ if (WIN32)
     set(CMAKE_DEBUG_POSTFIX "")
 endif()
 
-add_subdirectory(Tests)
+if(NOT SUBPROJECT)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
 add_subdirectory(QtComposition)
